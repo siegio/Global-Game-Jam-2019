@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 229cbaee7c465ee4c8c02d8775f6e74c
+guid: 5aee4236a124d724faa35e02e80a1ccc
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Balloon
+    100000: Balloon
+    100002: //RootNode
     100004: Rope
-    400000: //RootNode
-    400002: Balloon
+    400000: Balloon
+    400002: //RootNode
     400004: Rope
-    2100000: unnamed
-    2300000: //RootNode
-    2300002: Balloon
-    2300004: Rope
-    3300000: //RootNode
-    3300002: Balloon
-    3300004: Rope
-    4300000: Sphere_001
-    4300002: Rope
-    4300004: Balloon
-    2186277476908879412: ImportLogs
+    2100000: No Name
+    2300000: Balloon
+    2300002: Rope
+    3300000: Balloon
+    3300002: Rope
+    4300000: Rope
+    4300002: Balloon
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -72,8 +69,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -100,7 +97,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
