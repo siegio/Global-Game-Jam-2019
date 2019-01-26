@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
 		if (Input.GetButtonDown("Fire1")) { // lmb
 			spawnedObject = Instantiate(selectedThrowableObject ?? defaultThrowableObject, GetMousePosition(), Quaternion.identity);
 			(spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody).useGravity = false;
+			spawnedObject.AddComponent(typeof(KillWhenOutOfBounds));
 		}
 		else if (spawnedObject != null) {
 			if (Input.GetButtonUp("Fire1")) {
