@@ -56,12 +56,12 @@ public class GameController : MonoBehaviour
 	private Vector3 GetMousePosition() {
 		Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
 		Vector3 p2 = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5.0f));
-		Vector3 pointDirection = p - p2;
-		float cameraY = Camera.main.gameObject.transform.position.y;
-		float targetY = thingsSpawnHeight;
-		float yDiff = targetY - cameraY;
-		float amount = yDiff / pointDirection.y;
+		Vector3 pointDirection = (p - p2).normalized;
 
-		return Camera.main.gameObject.transform.position + amount * pointDirection;
+		var plane = new Plane((Vector3.up - pointDirection) / 2, Vector3.up * 5);
+		plane.Raycast(new Ray(Camera.main.gameObject.transform.position, pointDirection), out float distance);
+
+		return Camera.main.gameObject.transform.position + distance * pointDirection;
+		//return Camera.main.gameObject.transform.position + 2 * pointDirection;
 	}
 }
