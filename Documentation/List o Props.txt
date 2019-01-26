@@ -29,7 +29,7 @@ Fridge
 VHS tape
 Letter
 Trash Can
-Flowers
+j	Flowers
 Lawn Chair
 
 Piano
@@ -39,7 +39,7 @@ Trumpet
 Queen of England
 Darth Vader
 
-Rubber Ducks
+j	Rubber Ducks
 Squeaky chicken
 Teddy Bear
 
