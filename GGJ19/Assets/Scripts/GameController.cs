@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-	public GameObject throwableBall;
+	public static GameObject selectedThrowableObject;
+	public GameObject defaultThrowableObject;
 	public GameObject attachableBalloon;
 	public float thingsSpawnHeight = 3.0f;
-	public static GameController instance;
 
 	// Start is called before the first frame update
 	void Start()
@@ -26,7 +24,7 @@ public class GameController : MonoBehaviour
 			float yDiff = targetY - cameraY;
 			float amount = yDiff / pointDirection.y;
 
-			Instantiate(throwableBall, Camera.main.gameObject.transform.position + amount * pointDirection, Quaternion.identity);
+			Instantiate((selectedThrowableObject == null) ? defaultThrowableObject : selectedThrowableObject, Camera.main.gameObject.transform.position + amount * pointDirection, Quaternion.identity);
 		}
 
 		if (Input.GetButtonDown("Fire2")) { // rmb
