@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 	public GameObject attachableBalloon;
 	public float thingsSpawnHeight = 3.0f;
 	private GameObject spawnedObject;
+	private Rigidbody spawnedRigidbody;
 
 	// Start is called before the first frame update
 	void Start()
@@ -18,25 +19,29 @@ public class GameController : MonoBehaviour
     void Update() {
 		if (Input.GetButtonDown("Fire1")) { // lmb
 			spawnedObject = Instantiate(selectedThrowableObject ?? defaultThrowableObject, GetMousePosition(), Quaternion.identity);
-			(spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody).useGravity = false;
+			spawnedRigidbody = (spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody);
+			if (spawnedRigidbody == null) {
+				spawnedRigidbody = spawnedObject.GetComponentInChildren(typeof(Rigidbody)) as Rigidbody;
+			}
+			spawnedRigidbody.useGravity = false;
 			spawnedObject.AddComponent(typeof(KillWhenOutOfBounds));
 		}
-		else if (spawnedObject != null) {
+		else if (spawnedRigidbody != null) {
 			if (Input.GetButtonUp("Fire1")) {
-				(spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody).useGravity = true;
+				spawnedRigidbody.useGravity = true;
 				spawnedObject = null;
+				spawnedRigidbody = null;
 			}
 			else {
-				Rigidbody rbody = spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody;
 				// break
-				rbody.AddForce(-4 * rbody.velocity);
+				spawnedRigidbody.AddForce(-4 * spawnedRigidbody.velocity);
 				// accellerate
-				Vector3 force = (GetMousePosition() - spawnedObject.transform.position);
+				Vector3 force = (GetMousePosition() - spawnedRigidbody.transform.position);
 				force *= 10 + force.sqrMagnitude;
 				if (force.magnitude > 200) {
 					force *= 200 / force.magnitude;
 				}
-				rbody.AddForce(force);
+				spawnedRigidbody.AddForce(force);
 			}
 		}
 
