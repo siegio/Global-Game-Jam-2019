@@ -72,8 +72,11 @@ ModelImporter:
     2100004: PC_screen
     2100006: Windows
     2300000: huis_buitenkant1
+    2300002: //RootNode
     3300000: huis_buitenkant1
+    3300002: //RootNode
     4300000: huis_buitenkant1
+    4300002: SM_EnvironmentDetailed
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -125,7 +128,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
