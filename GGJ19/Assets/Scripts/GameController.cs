@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 	public GameObject defaultThrowableObject;
 	public GameObject attachableBalloon;
 	public float thingsSpawnHeight = 3.0f;
+	private GameObject spawnedObject;
 
 	// Start is called before the first frame update
 	void Start()
@@ -16,22 +17,33 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update() {
 		if (Input.GetButtonDown("Fire1")) { // lmb
-			Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-			Vector3 p2 = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5.0f));
-			Vector3 pointDirection = p - p2;
-			float cameraY = Camera.main.gameObject.transform.position.y;
-			float targetY = thingsSpawnHeight;
-			float yDiff = targetY - cameraY;
-			float amount = yDiff / pointDirection.y;
-
-			Instantiate((selectedThrowableObject == null) ? defaultThrowableObject : selectedThrowableObject, Camera.main.gameObject.transform.position + amount * pointDirection, Quaternion.identity);
+			spawnedObject = Instantiate(selectedThrowableObject ?? defaultThrowableObject, GetMousePosition(), Quaternion.identity);
+			(spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody).useGravity = false;
+		}
+		else if (spawnedObject != null) {
+			if (Input.GetButtonUp("Fire1")) {
+				(spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody).useGravity = true;
+				spawnedObject = null;
+			}
+			else {
+				Rigidbody rbody = spawnedObject.GetComponent(typeof(Rigidbody)) as Rigidbody;
+				// break
+				rbody.AddForce(-4 * rbody.velocity);
+				// accellerate
+				Vector3 force = (GetMousePosition() - spawnedObject.transform.position);
+				force *= 10 + force.sqrMagnitude;
+				if (force.magnitude > 200) {
+					force *= 200 / force.magnitude;
+				}
+				rbody.AddForce(force);
+			}
 		}
 
 		if (Input.GetButtonDown("Fire2")) { // rmb
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
-				if (!hit.rigidbody.isKinematic) {
+				if (hit.rigidbody != null && !hit.rigidbody.isKinematic) {
 					GameObject balloon = Instantiate(attachableBalloon, hit.point, Quaternion.identity);
 					hit.collider.gameObject.transform.parent = balloon.transform;
 					hit.rigidbody.useGravity = false;
@@ -39,5 +51,17 @@ public class GameController : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	private Vector3 GetMousePosition() {
+		Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+		Vector3 p2 = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5.0f));
+		Vector3 pointDirection = p - p2;
+		float cameraY = Camera.main.gameObject.transform.position.y;
+		float targetY = thingsSpawnHeight;
+		float yDiff = targetY - cameraY;
+		float amount = yDiff / pointDirection.y;
+
+		return Camera.main.gameObject.transform.position + amount * pointDirection;
 	}
 }
