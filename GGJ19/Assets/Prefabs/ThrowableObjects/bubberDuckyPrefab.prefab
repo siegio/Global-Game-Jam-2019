@@ -233,9 +233,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da72ff08e9ee8f447b2f4261b0add3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClipsAwake:
+  - {fileID: 8300000, guid: 4e9dd5557e709594ea5d3be249c8175e, type: 3}
+  - {fileID: 8300000, guid: 5d620c4710137d74f8244cae8d131b1c, type: 3}
+  - {fileID: 8300000, guid: f9df1398052c48b43a870bb2b381032c, type: 3}
+  - {fileID: 8300000, guid: 47faa5ebca4dca341a6ffe0174548af4, type: 3}
+  - {fileID: 8300000, guid: bcd075112c52ecc4daf63712b076d503, type: 3}
   audioClips:
-  - {fileID: 8300000, guid: d9f493727a72d2945b1d72338103c250, type: 3}
-  - {fileID: 8300000, guid: 55ca7edd0b4307d4f97e054662fe8476, type: 3}
-  - {fileID: 8300000, guid: b9bffc24e33d992469b0428af528e701, type: 3}
-  - {fileID: 8300000, guid: dae2ce782092c4746bd117ebe94986dd, type: 3}
-  - {fileID: 8300000, guid: dac09a8079d73434ebe671f3c804904a, type: 3}
+  - {fileID: 8300000, guid: 9c80cbab7f75141428370703bb9a9196, type: 3}
+  - {fileID: 8300000, guid: 214fa7a8bca2dda46bfb50c68bc4e16f, type: 3}
+  - {fileID: 8300000, guid: e3997fdf39064e243b5628bf26f440b3, type: 3}
