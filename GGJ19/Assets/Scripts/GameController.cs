@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
 	}
 
 	private int ThrowsToUnlockButton(int buttonIndex) {
-		return buttonIndex * 1;
+		return buttonIndex * 10;
 	}
 
     // Update is called once per frame
