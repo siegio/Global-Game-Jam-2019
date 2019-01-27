@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ParticleBurst : MonoBehaviour
 {
     
 	public ParticleSystem particle;
 	
-	private void OnCollisionEnter(Collision collision){
-		if (collision.gameObject.tag == "HouseCollider"){
-			//particle.Clear();
+	private void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "HouseCollider") {
 			particle.time = 0;
 			particle.Play();
-			Debug.Log("should do particle");
 		}
 	}
 	
