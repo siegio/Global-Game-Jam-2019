@@ -20,13 +20,19 @@ public class GameController : MonoBehaviour
 
 	private void UpdateButtons() {
 		for (int i = 0; i < objectChoiceButtons.Length; i++) {
-			objectChoiceButtons[i].gameObject.SetActive(spawnedObjectCount >= i);
+			objectChoiceButtons[i].gameObject.SetActive(spawnedObjectCount >= ThrowsToUnlockButton(i));
 			(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = objectChoiceButtons[i].itemName;
-			if (spawnedObjectCount == i - 1) {
+			objectChoiceButtons[i].isActive = true;
+			if (spawnedObjectCount >= ThrowsToUnlockButton(i - 1) && spawnedObjectCount < ThrowsToUnlockButton(i)) {
 				objectChoiceButtons[i].gameObject.SetActive(true);
-				(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = "???";
+				objectChoiceButtons[i].isActive = false;
+				(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = "??? throw " + (ThrowsToUnlockButton(i) - spawnedObjectCount) + " more!";
 			}
 		}
+	}
+
+	private int ThrowsToUnlockButton(int buttonIndex) {
+		return buttonIndex * 10;
 	}
 
     // Update is called once per frame

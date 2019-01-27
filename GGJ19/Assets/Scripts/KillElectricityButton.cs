@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class KillElectricityButton : ItemChooseButton {
 
-	public void OnSelect(BaseEventData eventData) {
+	public override void OnSelect(BaseEventData eventData) {
 	}
 
 	// Start is called before the first frame update

@@ -5,8 +5,11 @@ using UnityEngine.EventSystems;
 public class ItemChooseButton : MonoBehaviour, ISelectHandler {
 	public GameObject throwableObject;
 	public string itemName = "Object~~";
+	public bool isActive = true;
 
-	public void OnSelect(BaseEventData eventData) {
-		GameController.selectedThrowableObject = throwableObject;
+	public virtual void OnSelect(BaseEventData eventData) {
+		if (isActive) {
+			GameController.selectedThrowableObject = throwableObject;
+		}
 	}
 }
