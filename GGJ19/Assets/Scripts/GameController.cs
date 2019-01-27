@@ -16,6 +16,10 @@ public class GameController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start() {
 		UpdateButtons();
+		if (FunkyMusicMixer.instance != null) {
+			FunkyMusicMixer.instance.DisableOrchestra();
+			FunkyMusicMixer.instance.DisableSynth();
+		}
 	}
 
 	private void UpdateButtons() {
