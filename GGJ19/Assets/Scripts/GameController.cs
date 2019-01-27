@@ -9,12 +9,14 @@ public class GameController : MonoBehaviour
 	public float thingsSpawnHeight = 3.0f;
 	private GameObject spawnedObject;
 	private Rigidbody spawnedRigidbody;
-	private int spawnedObjectCount = 0;
+	public int houseHitCount = 0;
+	public static GameController instance;
 
 	public ItemChooseButton[] objectChoiceButtons;
 
 	// Start is called before the first frame update
 	void Start() {
+		instance = this;
 		UpdateButtons();
 		if (FunkyMusicMixer.instance != null) {
 			FunkyMusicMixer.instance.DisableOrchestra();
@@ -22,15 +24,15 @@ public class GameController : MonoBehaviour
 		}
 	}
 
-	private void UpdateButtons() {
+	public void UpdateButtons() {
 		for (int i = 0; i < objectChoiceButtons.Length; i++) {
-			objectChoiceButtons[i].gameObject.SetActive(spawnedObjectCount >= ThrowsToUnlockButton(i));
+			objectChoiceButtons[i].gameObject.SetActive(houseHitCount >= ThrowsToUnlockButton(i));
 			(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = objectChoiceButtons[i].itemName;
 			objectChoiceButtons[i].isActive = true;
-			if (spawnedObjectCount >= ThrowsToUnlockButton(i - 1) && spawnedObjectCount < ThrowsToUnlockButton(i)) {
+			if (houseHitCount >= ThrowsToUnlockButton(i - 1) && houseHitCount < ThrowsToUnlockButton(i)) {
 				objectChoiceButtons[i].gameObject.SetActive(true);
 				objectChoiceButtons[i].isActive = false;
-				(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = "??? throw " + (ThrowsToUnlockButton(i) - spawnedObjectCount) + " more!";
+				(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = "??? hit the house " + (ThrowsToUnlockButton(i) - houseHitCount) + "x more!";
 			}
 		}
 	}
@@ -49,8 +51,6 @@ public class GameController : MonoBehaviour
 			}
 			spawnedRigidbody.useGravity = false;
 			spawnedObject.AddComponent(typeof(KillWhenOutOfBounds));
-			spawnedObjectCount++;
-			UpdateButtons();
 		}
 		else if (spawnedRigidbody != null) {
 			if (Input.GetButtonUp("Fire1")) {
