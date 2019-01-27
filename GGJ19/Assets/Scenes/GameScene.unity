@@ -2318,6 +2318,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056207785}
   m_CullTransparentMesh: 0
+--- !u!1 &1073414708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6373013129559575444, guid: 28ac78a066f15684ba2fabf4e400dcbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 315244630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1086318011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,9 +2377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f81e3adbf12754aa44516a2531d0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwableObject: {fileID: 0}
+  throwableObject: {fileID: 1073414708}
   itemName: Turn off electricity
   isActive: 1
+  turnOffAnimation: {fileID: 0}
 --- !u!114 &1086318014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4066,9 +4073,7 @@ MonoBehaviour:
   - {fileID: 85969405}
   - {fileID: 458369418}
   - {fileID: 1428251548}
-  - {fileID: 1167086083}
   - {fileID: 306510373}
-  - {fileID: 220779645}
   - {fileID: 1119445569}
   - {fileID: 1184376078}
   - {fileID: 447263642}

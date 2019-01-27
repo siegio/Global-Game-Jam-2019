@@ -4,12 +4,14 @@ using UnityEngine.EventSystems;
 
 public class KillElectricityButton : ItemChooseButton {
 
+	public TurnOffAnimation turnOffAnimation;
+
 	public override void OnSelect(BaseEventData eventData) {
 	}
 
 	// Start is called before the first frame update
 	void Start() {
-		(gameObject.GetComponent(typeof(Button)) as Button).onClick.AddListener(() => { Debug.Log("bye!");  Application.Quit(); });
+		(gameObject.GetComponent(typeof(Button)) as Button).onClick.AddListener(() => { turnOffAnimation.TurnOff(); });
 	}
 
     // Update is called once per frame
