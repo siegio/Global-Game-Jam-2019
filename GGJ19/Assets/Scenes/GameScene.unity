@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 1678289200, guid: 96928a26533ee19459d2a585c3c95078, type: 3}
   itemName: Softball
+  isActive: 1
 --- !u!114 &85969406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 1834429505, guid: e224b742dcc228d40b2bb604d4d042af, type: 3}
   itemName: Basket ball
+  isActive: 1
 --- !u!114 &296975340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 1326729785, guid: 618d28aac537e92448f3fedda41eac33, type: 3}
   itemName: Pokeball
+  isActive: 1
 --- !u!114 &306510374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,6 +904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 1682377253, guid: 8a75d9f1ddb2bfc4c8edc711e0f355b1, type: 3}
   itemName: Dice
+  isActive: 1
 --- !u!114 &458369419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,6 +1329,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4434348079588966846, guid: 359fc515b66b3e942a789fab82500b89,
+        type: 3}
+      propertyPath: m_TagString
+      value: HouseCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 359fc515b66b3e942a789fab82500b89, type: 3}
 --- !u!1 &955126243
@@ -1461,6 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 134585146, guid: 48132d13bc762434180af062aa446a27, type: 3}
   itemName: Tennis ball
+  isActive: 1
 --- !u!114 &1034421868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,6 +1747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 0}
   itemName: Turn off electricity
+  isActive: 1
 --- !u!114 &1086318014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1970,6 +1981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 957382054, guid: 51341035818e908498c13825ad988c07, type: 3}
   itemName: Bouquet
+  isActive: 1
 --- !u!114 &1119445570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,6 +2282,7 @@ MonoBehaviour:
   throwableObject: {fileID: 5343601722025189634, guid: 8f3820ca585e57c4e99e6d4b8aa7d846,
     type: 3}
   itemName: Letter
+  isActive: 1
 --- !u!114 &1428251549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,6 +2516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 1180715214, guid: 0dda102bb7ed61c4fbd7d071cb2e3094, type: 3}
   itemName: Brick
+  isActive: 1
 --- !u!114 &1441597850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2954,6 +2968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 76536191, guid: 5b3c9c4e60b40464abf316824f1c9624, type: 3}
   itemName: Frisbee
+  isActive: 1
 --- !u!114 &1800469009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3187,6 +3202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 575688265, guid: 277ec506ed16bc445aff52c0c38bde35, type: 3}
   itemName: Duck
+  isActive: 1
 --- !u!114 &2045452044
 MonoBehaviour:
   m_ObjectHideFlags: 0
