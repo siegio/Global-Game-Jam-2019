@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -8,12 +9,25 @@ public class GameController : MonoBehaviour
 	public float thingsSpawnHeight = 3.0f;
 	private GameObject spawnedObject;
 	private Rigidbody spawnedRigidbody;
+	private int spawnedObjectCount = 0;
+
+	public ItemChooseButton[] objectChoiceButtons;
 
 	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
+	void Start() {
+		UpdateButtons();
+	}
+
+	private void UpdateButtons() {
+		for (int i = 0; i < objectChoiceButtons.Length; i++) {
+			objectChoiceButtons[i].gameObject.SetActive(spawnedObjectCount >= i);
+			(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = objectChoiceButtons[i].itemName;
+			if (spawnedObjectCount == i - 1) {
+				objectChoiceButtons[i].gameObject.SetActive(true);
+				(objectChoiceButtons[i].GetComponentInChildren(typeof(Text)) as Text).text = "???";
+			}
+		}
+	}
 
     // Update is called once per frame
     void Update() {
@@ -25,6 +39,8 @@ public class GameController : MonoBehaviour
 			}
 			spawnedRigidbody.useGravity = false;
 			spawnedObject.AddComponent(typeof(KillWhenOutOfBounds));
+			spawnedObjectCount++;
+			UpdateButtons();
 		}
 		else if (spawnedRigidbody != null) {
 			if (Input.GetButtonUp("Fire1")) {

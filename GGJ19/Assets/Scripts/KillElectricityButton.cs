@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class KillElectricityButton : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start() {
+public class KillElectricityButton : ItemChooseButton {
+
+	public void OnSelect(BaseEventData eventData) {
+	}
+
+	// Start is called before the first frame update
+	void Start() {
 		(gameObject.GetComponent(typeof(Button)) as Button).onClick.AddListener(() => { Debug.Log("bye!");  Application.Quit(); });
 	}
 
